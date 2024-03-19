@@ -13,13 +13,33 @@ function addWorkout(date, workout, summary){
 }
 
 // example of an array of workouts
-const workout= [
-    {date: 1/1/24, workout: "jumping jacks", summary: "1 minute of jumpingjacks"},
-    {date: 1/2/24, workout: "high knees", summary: "1 minute of high knees"},
-    {date: 1/5/24, workout: "planks", summary: "1 minute of planks"},
-    {date: 1/5/24, workout: "crunches", summary: "1 minute of crunches"},
+const workoutHistory= [
+    {date: 1/1/24, workout: "cardio", summary: "1 minute of jumpingjacks"},
+    {date: 1/2/24, workout: "strength", summary: "30 minute of smith machine"},
+    {date: 1/5/24, workout: "stretching", summary: "1 minute of yoga stretching"},
+    {date: 1/5/24, workout: "hiit", summary: "15 minute of pilates"},
 ];
 
 // filter daily workouts (1/5/24 is daily workout)
 function filterDailyWorkouts(dailyWorkoutArray){
-    let otherDates
+    let otherDates = [];
+    for (const date of workout) {
+        if (!date(1/5/25)){
+            otherDates.push(date)
+        }
+    }
+    return otherDates;
+}
+
+// make a workout class
+class workout{
+    constructor (date, workoutType, summary){
+        this.date= date;
+        this.workoutType= workoutType;
+        this.summary= summary
+    }
+    displayInfo(){
+        return `Date: ${this.date} Workout: ${this.workoutType}, Summary: ${this.summary}`
+        // example "1/3/24 workout: cardio, summary: jogged for 20 mins"
+    }
+}
