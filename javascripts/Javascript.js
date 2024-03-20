@@ -43,3 +43,14 @@ class workout{
         // example "1/3/24 workout: cardio, summary: jogged for 20 mins"
     }
 }
+
+document.addEventListener('DOMContentLoaded'), () => {
+    const listElement= document.getElementById(elementId);
+    listElement.innerHTML = '';
+    array.forEach(element => {
+        const listItem  = document.createElement('li');
+        listItem.testcontent = item.displayInfo ? item.displayInfo(): `Date: ${this.date} Workout: ${this.workoutType}, Summary: ${this.summary}`
+        listElement.appendChild(listItem);
+    })
+};
+
