@@ -1,30 +1,30 @@
 //define an array to store the daily workout
-var dailyWorkout = [];
+// var dailyWorkout = [];
 
 //function to add workout to the workout array
 function addWorkout(date, workout, summary){
-    let workout = {
+    let newWorkout = {
         date: date,
         workout: workout,
         summary: summary
     }
-    dailyWorkout.push(workout);
-    console.log(dailyWorkout);
+    workoutHistory.push(newWorkout);
+    console.log(addWorkout);
 }
 
 // example of an array of workouts
 const workoutHistory= [
-    {date: 1/1/24, workout: "cardio", summary: "1 minute of jumpingjacks"},
-    {date: 1/2/24, workout: "strength", summary: "30 minute of smith machine"},
-    {date: 1/5/24, workout: "stretching", summary: "1 minute of yoga stretching"},
-    {date: 1/5/24, workout: "hiit", summary: "15 minute of pilates"},
+    {date: "1/1/24", workout: "cardio", summary: "1 minute of jumpingjacks"},
+    {date: "1/2/24", workout: "strength", summary: "30 minute of smith machine"},
+    {date: "1/5/24", workout: "stretching", summary: "1 minute of yoga stretching"},
+    {date: "1/5/24", workout: "hiit", summary: "15 minute of pilates"},
 ];
 
 // filter daily workouts (1/5/24 is daily workout)
-function filterDailyWorkouts(dailyWorkoutArray){
+function filterDailyWorkouts(workoutHistory){
     let otherDates = [];
     for (const date of workout) {
-        if (!date(1/5/25)){
+        if (!date("1/5/25")){
             otherDates.push(date)
         }
     }
@@ -54,3 +54,12 @@ document.addEventListener('DOMContentLoaded'), () => {
     })
 };
 
+document.getElementById('daily-workout-log').innerhtml = `<h4> Workout History: ${workoutHistory} </h4>`;
+
+displayArrayList(filterDailyWorkouts(workoutHistory), 'all-workouts');
+
+document.getElementById('add-workout-btn').onclick = () => {
+    const date = document.getElementById("date-input").value;
+    const workoutType = document.getElementById("new-workout-input").value;
+    const summary = document.getElementById("workout-summary-input").value
+};
